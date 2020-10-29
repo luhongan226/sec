@@ -1,26 +1,25 @@
 import tkinter
+import math
 def f1():
     import numpy as np
     import matplotlib.pyplot as plt
-
-    x = np.arange(-10.0, 10.0, 0.01)
+    plt.cla()
+    x = np.arange(-10.0, 10.0, math.pi/12)
     y1 = np.sin(x)
 
     plt.xlim((-5, 5))
-    plt.ylim((-1, 10))
+    plt.ylim((-1, 1))
 
     plt.figure(1)
-    plt.subplot(211)
-    plt.plot(x, y1)
+    plt.stem(x, y1)
 
-    plt.title("x(t)=Acos(wt+ψ)")
+    plt.title("x(t)=Acos(n)")
 
     plt.show()
-
 def f2():
     import numpy as np
     import matplotlib.pyplot as plt
-
+    plt.cla()
     def f(t):
         return np.exp(-t)
 
@@ -30,12 +29,12 @@ def f2():
     def h(t):
         return np.exp(0 * t)
 
-    t1 = np.arange(-5.0, 5.0, 0.1)
-    t2 = np.arange(-5.0, 5.0, 0.1)
+    t1 = np.arange(-5.0, 5.0,0.25)
+    t2 = np.arange(-5.0, 5.0, 0.25)
 
-    plt.plot(t1, f(t1), '-b', label='X(t)=e^-t')
-    plt.plot(t2, g(t2), '-r', label='X(t)=e^t')
-    plt.plot(t2, h(t2), 'g-', label='X(t)=e^0=1')
+    plt.stem(t1, f(t1), '-b', label='X(t)=e^-t')
+    plt.stem(t2, g(t2), '-r', label='X(t)=e^t')
+    plt.stem(t2, h(t2), 'g-', label='X(t)=e^0=1')
     plt.legend(loc='best')
 
     plt.xlim((-5, 5))
@@ -57,7 +56,7 @@ def f2():
 def f3():
     import numpy as np
     import matplotlib.pyplot as plt
-
+    plt.cla()
     def a(t):
         return 2 * np.cos(t + 0.4)
 
@@ -70,11 +69,11 @@ def f3():
     def e(t):
         return 0.5 * d(t) * np.cos(t + 0.4)
 
-    t1 = np.arange(-5.0, 5.0, 0.1)
-    t2 = np.arange(-5.0, 5.0, 0.1)
-    t3 = np.arange(-50, 50, 0.1)
+    t1 = np.arange(-5.0, 5.0, math.pi/6)
+    t2 = np.arange(-5.0, 5.0, math.pi/6)
+    t3 = np.arange(-50, 50, math.pi/6)
     ax = plt.gca()
-    plt.plot(t3, e(t3), 'g-')
+    plt.stem(t3, e(t3), 'g-')
 
     plt.xlim((-50, 20))
     plt.ylim((-5, 5))
@@ -94,7 +93,7 @@ def f3():
 def f4():
     import numpy as np
     import matplotlib.pyplot as plt
-
+    plt.cla()
     def f(t):
         return np.exp(-t)
 
@@ -119,12 +118,12 @@ def f4():
     def e(t):
         return 0.5 * d(t) * np.cos(t + 0.4)
 
-    t1 = np.arange(-5.0, 5.0, 0.1)
-    t2 = np.arange(-5.0, 5.0, 0.1)
-    t3 = np.arange(-50, 50, 0.1)
+    t1 = np.arange(-5.0, 5.0, math.pi/6)
+    t2 = np.arange(-5.0, 5.0, math.pi/6)
+    t3 = np.arange(-50, 50, math.pi/6)
 
     ax = plt.gca()
-    plt.plot(t3, b(t3), 'r-')
+    plt.stem(t3, b(t3), 'r-')
 
     plt.xlim((-20, 50))
     plt.ylim((-5, 5))
